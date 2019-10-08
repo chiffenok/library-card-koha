@@ -1,5 +1,6 @@
 require('dotenv/config');
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const morgan = require('morgan');
 const axios = require('axios');
@@ -12,7 +13,7 @@ app.use(morgan('dev'));
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('<h1>Test</h1>');
+    res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.post('/api/login', (req, res) => {
